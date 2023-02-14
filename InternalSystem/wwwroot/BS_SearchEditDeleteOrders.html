@@ -23,7 +23,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>BMW內部系統</title>
 
     <meta name="description" content="" />
 
@@ -73,7 +73,7 @@
             <!-- Menu -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="./" class="app-brand-link">
+                    <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="../assets/img/BMW_logo.png" alt="我是Logo" style="height: 50px;">
                         </span>
@@ -90,7 +90,7 @@
                 <ul class="menu-inner py-1">
                     <!-- 首頁 -->
                     <li class="menu-item">
-                        <a href="./" class="menu-link">
+                        <a href="index.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics" class="fs-4 fw-bold">首頁</div>
                         </a>
@@ -737,7 +737,9 @@
                                             <input type="datetime-local"
                                                    class="form-control fs-5"
                                                    id="deadline"
-                                                   v-model="deadline" />
+                                                   v-model="deadline" 
+                                                   :disabled="isdisable"
+                                                   />
                                         </div>
 
                                         <!-- ★Modal -->
@@ -1094,6 +1096,8 @@
 
                 axios.get('/api/BusinessOrders/hidden').then(g => this.ordernumhidden.num = g.data);
                 this.limit = JSON.parse(sessionStorage.getItem("LoginInf"));
+                this.ordernum = JSON.parse(sessionStorage.getItem("queryord"));
+                
                 //console.log(this.limit.DepID);
             }
         }).mount('#divedit');

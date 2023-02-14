@@ -23,7 +23,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>BMW內部系統</title>
 
     <meta name="description" content="" />
 
@@ -73,7 +73,7 @@
             <!-- Menu -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="./" class="app-brand-link">
+                    <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="../assets/img/BMW_logo.png" alt="我是Logo" style="height: 50px;">
                         </span>
@@ -90,7 +90,7 @@
                 <ul class="menu-inner py-1">
                     <!-- 首頁 -->
                     <li class="menu-item">
-                        <a href="./" class="menu-link">
+                        <a href="index.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics" class="fs-4 fw-bold">首頁</div>
                         </a>
@@ -557,7 +557,10 @@
                                             <div :id="accordionOne[key]"
                                                  class="accordion-collapse collapse">
                                                 <div class="accordion-body">
-                                                    <p class="mt-4">訂單編號:{{o.orderNumber}}</p>
+                                                    <div class="d-flex">
+                                                        <p class="mt-4">訂單編號:{{o.orderNumber}}</p>
+                                                        <button class="btn btn-primary ms-4 mt-2" @click="query(o)">查詢</button>
+                                                    </div>
                                                     <p>車款:{{o.detail[0].optionalName.substring(4)}}</p>
                                                     <p>車漆顏色:{{o.detail[1].optionalName}}</p>
                                                     <p>內裝材質:{{o.detail[2].optionalName}}</p>
@@ -568,7 +571,6 @@
                                                     <p>天窗:   {{o.detail[7].optionalName}}</p>
                                                     <p>多媒體: {{o.detail[8].optionalName}}</p>
                                                     <p>價格: {{o.price}}</p>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -601,9 +603,9 @@
                                     data-app-light-img="illustrations/page-misc-error-light.png" />
                             </div>
                         
-                            <!--<div class="d-flex justify-content-center mt-4 mb-4">
+                            <div class="d-flex justify-content-center mt-4 mb-4">
                                 <a href="Login_LogOut.html" class="btn btn-primary mx-auto fs-4 fw-bold">登出</a>
-                            </div>-->
+                            </div>
                         </div>
                 </div>
             </div>
@@ -671,6 +673,11 @@
                                 return this.filtered;
                             }
                         });
+                    },
+                    query(e) {
+                        console.log(e.orderNumber);
+                        sessionStorage.setItem("queryord", JSON.stringify(e.orderNumber));
+                        //window.location = "BS_SearchEditDeleteOrders.html";
                     }
                 },
                 mounted() {
@@ -681,7 +688,10 @@
                                 this.accordionOne.push(g.data[idx].orderNumber);
                                 if (x.ppname == "製程C-性能測試" && x.ppstate == "已完成") {
                                     x.pparea = "";
-                                    x.ppname = "生產完畢";
+                                    x.ppname = "生產完畢，等待交車";
+                                }
+                                if (x.deadlineDateTime == null) {
+                                    x.deadlineDateTime = "N/A";
                                 }
                                 let elapseddays = (new Date() - new Date(x.orderDateTime)) / 86400000;
                                 elapseddays = Math.round(elapseddays * 10) / 10;  //四捨五入至小數點下1位
