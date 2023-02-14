@@ -207,7 +207,7 @@
                     postData['Account'] = self.form.UserID;
                     postData['Password'] = self.form.UserPwd;
 
-                    axios.post("https://localhost:44319/api/LoginTest",
+                    axios.post("/api/LoginTest",
                         postData
                     )   //驗證
                         .then((response) => {
