@@ -749,7 +749,7 @@
                   var eDay = self.MeetSearch.EndDay1
                   self.MeetSearch.EndDay2 = eDay.substring(0, 4) + eDay.substring(5, 7) + eDay.substring(8, 10)
 
-                  axios.get("https://localhost:44319/api/MeetingReserves/RM/" + self.MeetRsInfo.meetPlaceId + "/" + self.MeetSearch.StartDay2 + "/" + self.MeetSearch.EndDay2
+                  axios.get("/api/MeetingReserves/RM/" + self.MeetRsInfo.meetPlaceId + "/" + self.MeetSearch.StartDay2 + "/" + self.MeetSearch.EndDay2
                   )   //驗證
                     .then((response) => {
                       if (response.data[0] != undefined) {
@@ -787,7 +787,7 @@
                 console.log(this.MeetRsInfo.endTime);
                 console.log(this.MeetRsInfo);
 
-                axios.post("https://localhost:44319/api/MeetingReserves/" + this.MeetRsInfo.depId + "/" + this.MeetRsInfo.meetPlaceId + "/" + this.MeetRsInfo.date + "/" + this.MeetRsInfo.startTime + "-" + this.MeetRsInfo.endTime, this.MeetRsInfo
+                axios.post("/api/MeetingReserves/" + this.MeetRsInfo.depId + "/" + this.MeetRsInfo.meetPlaceId + "/" + this.MeetRsInfo.date + "/" + this.MeetRsInfo.startTime + "-" + this.MeetRsInfo.endTime, this.MeetRsInfo
                 )
                   .then(res => {
                     if (res.data == "預約成功!") {
