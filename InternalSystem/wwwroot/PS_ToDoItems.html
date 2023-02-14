@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <!-- axios -->
+    <script crossorigin="anonymous"
+            integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+            src="https://lib.baomitu.com/axios/1.2.2/axios.min.js"></script>
+    <meta name="description" content="" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+</head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+      <!-- Menu -->
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        <div class="app-brand demo">
+          <a href="./" class="app-brand-link">
+            <span class="app-brand-logo demo">
+              <img src="../assets/img/BMW_logo.png" alt="我是Logo" width="50px">
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">內部系統</span>
+          </a>
+      
+          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+          </a>
+        </div>
+      
+        <div class="menu-inner-shadow"></div>
+      
+        <ul class="menu-inner py-1">
+          <!-- 首頁 -->
+          <li class="menu-item">
+            <a href="./" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <div data-i18n="Analytics" class="fs-4 fw-bold">首頁</div>
+            </a>
+          </li>
+      
+          <!-- 個人資料 -->
+          <li class="menu-header small text-uppercase">
+            <span class="menu-header-text fs-5 fw-bold">個人資料系統</span>
+          </li>
+          <li class="menu-item active open">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">個人資料</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="PS_Profile.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">個人資料</div>
+                </a>
+              </li>
+              <li class="menu-item active">
+                <a href="PS_ToDoItems.html" class="menu-link">
+                  <div data-i18n="Notifications" class="fs-5">待辦事項</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PS_CheckInSystem.html" class="menu-link">
+                  <div data-i18n="Connections" class="fs-5">打卡系統</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+      
+          <!-- 請假/加班申請 -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">請假/加班申請</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="LV_LeaveApplication.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">請假申請</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="LV_ProfileLeaveSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">請假查詢</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="LV_OvertimeSearch.html" class="menu-link">
+                  <div data-i18n="Connections" class="fs-5">加班申請</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="LV_ProfileOvertimeSearch.html" class="menu-link">
+                  <div data-i18n="Connections" class="fs-5">加班查詢</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="LV_AttendSearch.html" class="menu-link">
+                  <div data-i18n="Notifications" class="fs-5">出缺勤查詢</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+      
+          <li class="menu-header small text-uppercase">
+            <span class="menu-header-text fs-5 fw-bold">人事管理系統</span>
+          </li>
+          <!-- 人事管理(人資部專用) -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">人事管理</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="HR_EmpProfileCreate.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">新建員工資料</div>
+                </a>
+              </li>
+                <li class="menu-item">
+                  <a href="HR_EmpProfileSearch.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">員工資料查詢</div>
+                  </a>
+                </li>
+              <li class="menu-item">
+                <a href="HR_EmpProfileEdit.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">員工資料修改</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="HR_EmpLeaveSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">請假資料查詢/修改</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="HR_OvertimeSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">加班資料查詢/修改</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="HR_EmpProfileAttendSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">員工出勤查詢</div>
+                </a>
+              </li>
+              
+      
+            </ul>
+          </li>
+      
+      
+          <li class="menu-header small text-uppercase">
+            <span class="menu-header-text fs-5 fw-bold">業務與產線系統</span>
+          </li>
+          <!--業務系統(業務專用) -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">業務系統</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="BS_CreateOrders.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">新建訂單</div>
+                </a>
+              </li>
+      
+              <li class="menu-item">
+                <a href="BS_SearchEditDeleteOrders.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">查詢/修改/刪除訂單</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="BS_OrderAll.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">訂單一覽</div>
+                </a>
+            </li>
+            </ul>
+          </li>
+      
+          <!-- 產線系統 -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">產線管理</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="PD_ToDoItems.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">待辦事項</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PD_MakeClass.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">產線報工</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PD_BugReportCreate.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">建立異常單</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PD_BugSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">異常清單查詢</div>
+                </a>
+              </li>
+              <li class="menu-item">
+          <a href="PD_ReportContentSearch.html" class="menu-link">
+            <div data-i18n="Account" class="fs-5">報工查詢</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="PD_LineTotal.html" class="menu-link">
+            <div data-i18n="Account" class="fs-5">製程總工時</div>
+          </a>
+        </li>
+            </ul>
+          </li>
+      
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">產線狀況監控</div>
+            </a>
+            <ul class="menu-sub">
+               
+              <li class="menu-item">
+                <a href="BS_BugSys.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">報錯系統</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="BS_MonitorSys.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">監控系統</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+      
+          <!-- 採購系統 -->
+          <li class="menu-header small text-uppercase">
+            <span class="menu-header-text fs-5 fw-bold">採購系統</span>
+          </li>
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">採購系統</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="PC_ToDoItems.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">採購待辦事項</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PC_Application.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">採購申請表</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PC_ApplicationRecordSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="PC_ItemSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">物品資料查詢</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+      
+          <!-- 會議室申請 -->
+          <li class="menu-header small text-uppercase">
+            <span class="menu-header-text fs-5 fw-bold">會議室</span>
+          </li>
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
+              <div data-i18n="Account Settings" class="fs-4 fw-bold">會議室申請</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="MT_MeetReserve.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">預約會議室</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="MT_MeetReserveSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">查詢租借紀錄/<br>建立會議記錄表</div>
+                </a>
+              </li>
+              
+              <li class="menu-item">
+                <a href="MT_MeetRecordSearch.html" class="menu-link">
+                  <div data-i18n="Account" class="fs-5">會議記錄表查詢</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+      
+          
+          
+        </ul>
+      </aside>
+      <!-- /Menu -->
+      
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Navbar -->
+      
+                <nav class="container" id="navInf">
+                  <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar" style="height: 80px;">
+                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                      <!-- 問好 -->
+                      <div v-bind:title="message" class="navbar-nav align-items-center fs-4 mx-auto">
+                        😊您好
+                        <span class="fw-bold mx-2 fs-2"
+                          style="text-decoration: underline 4pt #666EE8;">{{navInf.Name}}</span>&nbsp;&nbsp;
+                        📋工號：
+                        <span class="fw-bold mx-2 fs-2"
+                          style="text-decoration: underline 4pt #666EE8;">{{navInf.EmpNumber}}</span>&nbsp;&nbsp;
+                        💻部門：
+                        <span class="fw-bold mx-2 fs-2" style="text-decoration: underline 4pt #666EE8;">{{navInf.Dep}}</span>
+                      </div>
+                      <!-- /問好 -->
+                
+                      <ul class="navbar-nav flex-row align-items-center ms-auto">
+                
+                        <!-- User -->
+                        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                          <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                            <div class="avatar ">
+                              <img :src="navInf.Photo" class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="#">
+                                <div class="d-flex">
+                                  <div class="flex-shrink-0 me-3">
+                                    <div class="avatar ">
+                                      <img :src="navInf.Photo" class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                  </div>
+                                  <div class="flex-grow-1">
+                                    <span class="fw-semibold d-block fs-5">{{navInf.Name}}</span>
+                                    <small class="text-muted fs-6">{{navInf.PositionName}}</small>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                
+                            <li>
+                              <a class="dropdown-item" href="#" @click="DoLogOut">
+                                <i class="bx bx-power-off me-2"></i>
+                                <span class="align-middle">登出</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <!--/ User -->
+                      </ul>
+                
+                    </div>
+                  </nav>
+                  <!-- / Navbar -->
+                </nav>
+      
+        <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+        <div class="content-wrapper">
+            <!-- Content -->
+                                <div class="container-xxl flex-grow-1 container-p-y" id="app">
+                        <!-- 我是成功的吐司 -->
+                        <div class="bs-toast toast fade show bg-success mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
+                            aria-live="assertive" aria-atomic="true" id="toastSuc">
+                            <div class="toast-header">
+                                <i class="bx bx bxs-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-bold fs-3">通知</div>
+                                <small></small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body fs-4 fw-bold">
+                                ✔&nbsp;{{text}}
+                            </div>
+                        </div>
+                        <!-- 錯誤的吐司 -->
+                        <div class="bs-toast toast fade show bg-danger mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
+                            aria-live="assertive" aria-atomic="true" id="toastErr">
+                            <div class="toast-header">
+                                <i class="bx bx bxs-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-bold fs-3">通知</div>
+                                <small></small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body fs-4 fw-bold">
+                                ❌&nbsp;{{text}}
+                            </div>
+                        </div>
+                        <!-- 麵包屑 -->
+                        <span class="fs-4">個人資料 / </span><span class=" fw-bold fs-2">待辦事項</span>
+
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                      <div class="card mt-0 m-4">
+                        <!-- 卡片標題 -->
+                        <div class="d-flex bg-info mb-5" style="border-radius: 8px 8px 0px 0px;">
+                          <div class="col-1 my-2 mb-3" style="width: 70px;">
+                            <img src="../assets/img/myicon/order.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                          </div>
+                          <div class="col-6 my-2 mb-3">
+                            <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">個人待辦事項</h2>
+                          </div>
+                        </div>
+                                    <!-- ★設權限 -->
+                                    <ul class="nav nav-pills mb-3 nav-fill active" role="tablist" >
+                                        <li class="nav-item " v-if="employeelist.positionId<7">
+                                            <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="cnt>0">{{cnt}}</span>
+                                            <button type="button"
+                                                    class="btn-primary fw-bold border-3 my-5"
+                                                    role="tab"
+                                                    data-bs-toggle="tab"
+                                                    data-bs-target="#home"
+                                                    aria-controls="home"
+                                                    aria-selected="true">
+                                                個人待辦事項
+                                            </button>
+                                        </li>
+                                        <!--<li class="nav-item" v-if="employeelist.positionId<7">
+                                            <button type="button"
+                                                    class="nav-link"
+                                                    role="tab"
+                                                    data-bs-toggle="tab"
+                                                    data-bs-target="#navs-top-profile"
+                                                    aria-controls="navs-top-profile"
+                                                    aria-selected="false">
+                                                採購事項
+                                            </button>
+                                        </li>-->
+                                        <li class="nav-item " v-if="employeelist.positionId==7">
+                                            <button type="button"
+                                                    class="btn-primary fw-bold border-3"
+                                                    role="tab"
+                                                    data-bs-toggle="tab"
+                                                    data-bs-target="#auditleave"
+                                                    aria-controls="auditleave"
+                                                    aria-selected="false"
+                                                    @click="auditleave">
+                                                請假審核
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="mnt!=0">{{mnt}}</span>
+                                            </button>
+                                        </li>
+
+                                        <li class="nav-item" v-if="employeelist.positionId==7">
+                                            <button type="button"
+                                                    class="btn-primary fw-bold border-3"
+                                                    role="tab"
+                                                    data-bs-toggle="tab"
+                                                    data-bs-target="#over"
+                                                    aria-controls="over"
+                                                    aria-selected="false"
+                                                    id="overtime-check"
+                                                    @click="over">
+                                                加班審核
+                                                <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="wmt!=0">{{wmt}}</span>
+
+                                            </button>
+                                        </li>
+
+                                        <!--<li class="nav-item" v-if="employeelist.positionId<7">
+                                            <button type="button"
+                                                    class="nav-link"
+                                                    role="tab"
+                                                    data-bs-toggle="tab"
+                                                    data-bs-target="#proxy"
+                                                    aria-controls="proxy"
+                                                    aria-selected="false">
+                                                請假代理
+                                            </button>
+                                        </li>-->
+                                    </ul>
+                                
+
+                        
+
+                                    
+
+                                        <!-- 請假 -->
+                                        <div id="home" role="tabpanel" v-if="employeelist.positionId < 7" >
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-hover">
+                                                    <thead class="bg-black">
+                                                        <tr>
+                                                            <th class="fs-4 text-white fw-bold">待辦項目</th>
+                                                            <th class="fs-4 text-white fw-bold">員工名稱</th>
+                                                            <th class="fs-4 text-white fw-bold">員工編號</th>
+                                                            <th class="fs-4 text-white fw-bold">員工部門</th>
+                                                            <th class="fs-4 text-white fw-bold">&nbsp;</th>
+                                                            <th class="fs-4 text-white fw-bold">狀態</th>
+                                                            <th class="fs-4 text-white fw-bold">&nbsp;</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="table-border-bottom-0" v-for="(leaveExit,key) in leavereturn">
+                                                        <tr>
+                                                            <td>
+                                                                <button type="button" class="btn btn-secondary fs-5 fw-bold" disabled>請假</button>
+
+                                                            </td>
+                                                            <td><i class="fab fa-angular fa-lg text-danger me-3 fs-5"></i> <strong class="fs-5">{{leaveExit.employeeName}}</strong></td>
+                                                            <td><strong class="fs-5">{{leaveExit.employeeNumber}}</strong></td>
+                                                            <td>
+                                                                <strong class="fs-5">{{leaveExit.depName}}</strong>
+                                                                <!--<span class="label-primary me-1 fs-5">{{leaveExit.startDate}} - {{leaveExit.startTime}}</span>-->
+                                                            </td>
+                                                            <td>
+                                                                <!--<span class="label-primary me-1 fs-5">{{leaveExit.endDate}} - {{leaveExit.endTime}}</span>-->
+                                                            </td>
+                                                            <td>
+                                                                <span class="label-primary me-1 fs-5"><strong class="fs-5">{{leaveExit.auditStatus}}</strong></span>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <div class="dropdown">
+
+                                                                    <div class="">
+                                                                        <a class="dropdown-item fs-5" href="PS_ToDoItems_LeaveExit.html" type="button" @click="exitbtn(leaveExit)"><i class="bx bx-edit-alt me-2"></i> <strong class="fs-5">檢視項目</strong></a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <tbody class="table-border-bottom-0" v-for="(leave,key) in leaveproxy">
+                                                        <tr>
+                                                            <td>
+                                                                <button type="button" class="btn btn-secondary fs-5 fw-bold" disabled>代理人申請</button>
+                                                            </td>
+                                                            <td>
+                                                                <strong class="fs-5">{{leave.employeeName}}</strong>
+                                                            </td>
+                                                            <td> <strong class="fs-5">{{leave.employeeNumber}}</strong></td>
+                                                            <td>
+                                                                <span class="label-primary me-1 fs-5"> <strong class="fs-5">{{leave.depName}}</strong></span>
+                                                            </td>
+                                                            <td>
+                                                                <!--<span class="label-primary me-1 fs-5">{{leave.endDate}} - {{leave.endTime}}</span>-->
+                                                            </td>
+                                                            <td>
+                                                                <span class="label-primary me-1 fs-5"><strong class="fs-5">{{leave.auditStatus}}</strong></span>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <div class="dropdown">
+
+                                                                    <div class="">
+                                                                        <a class="dropdown-item fs-5" type="button" @click="checkbtn(leave)" href="HR_ToDoItems_Leave.html"><i class="bx bx-edit-alt me-2"></i> <strong class="fs-5">檢視項目</strong></a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <!--採購退件-->
+                                                    <tbody class="table-border-bottom-0" v-for="(buy,key) in buyapp">
+                                                        <tr>
+                                                            <td >
+                                                                <button type="button" class="btn btn-secondary fs-5 fw-bold" disabled>採購</button>
+                                                            </td>
+                                                            <td>
+                                                                <i class="fab fa-angular fa-lg text-danger me-3 fs-5"></i>
+                                                                <strong class="fs-5" >{{buy.employeeName}}</strong>
+                                                            </td>
+                                                            <td><strong class="fs-5">{{buy.employeeNumber}} </strong></td>
+                                                            <td>
+                                                                <span class="label-primary me-1 fs-5"><strong class="fs-5">{{buy.department}}</strong></span>
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                <span class="label-primary me-1 fs-5" v-if="buy.applicationRejectStatus ==true"><strong class="fs-5">退件</strong></span>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <div class="dropdown">
+
+                                                                    <div class="">
+                                                                        <a class="dropdown-item fs-5" type="button" @click="buycheckbtn(buy)" href="PS_ApplicationRejectDetails.html"><i class="bx bx-edit-alt me-2"></i> <strong class="fs-5"> 檢視項目</strong></a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                </table>
+                                            </div>
+                                         
+                                        </div>
+                                    <!--加班 -->
+                                    <!--<div class="tab-pane fade " id="navs-top-profile" role="tabpanel">
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-striped table-hover">
+                                                    <thead class="bg-black">
+                                                        <tr>
+                                                            <th class="fs-4 text-white fw-bold">待修正項目</th>
+                                                            <th class="fs-4 text-white fw-bold">員工編號</th>
+                                                            <th class="fs-4 text-white fw-bold">加班起始時間</th>
+                                                            <th class="fs-4 text-white fw-bold">加班結束時間</th>
+                                                            <th class="fs-4 text-white fw-bold">狀態</th>
+                                                            <th class="fs-4 text-white fw-bold">修改</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="table-border-bottom-0" v-for="notyet in NotyetOver">
+                                                        <tr>
+                                                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong class="fs-5">{{notyet.employeeName}}</strong></td>
+                                                            <td>{{notyet.employeeNumber}}</td>
+                                                            <td>
+                                                                <span class="label-primary me-1">{{notyet.startDate}} - {{notyet.startTime}}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="label-primary me-1">{{notyet.endDate}} - {{notyet.endTime}}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="label-primary me-1">待檢閱</span>
+
+                                                            </td>
+                                                            <td>
+
+                                                                <div class="dropdown">
+
+                                                                    <div class="">
+                                                                        <a class="dropdown-item" href="LV_OvertimeEdit.html" type="button" @click="checkOver(notyet)"><i class="bx bx-edit-alt me-2" >
+                                                                        </i>檢視</a>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                </table>
+                                    </div>
+                                </div>-->
+
+                                <!--請假審核-->
+                                <div class="tab-pane fade " id="auditleave" role="tabpanel"  style="display:none"
+                                    >
+                                        <div class="table-responsive text-nowrap" >
+                                            <table class="table table-striped table-hover">
+                                                <thead class="bg-black">
+                                                    <tr>
+                                                        <th class="fs-4 text-white fw-bold">待辦項目</th>
+                                                        <th class="fs-4 text-white fw-bold">員工編號</th>
+                                                        <th class="fs-4 text-white fw-bold">請假起始時間</th>
+                                                        <th class="fs-4 text-white fw-bold">請假結束時間</th>
+                                                        <th class="fs-4 text-white fw-bold">狀態</th>
+                                                        <th class="fs-4 text-white fw-bold">修改</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-border-bottom-0"  v-for="(leave,key) in leaveproxy">
+                                                    <tr>
+                                                        <td><i class="fab fa-angular fa-lg text-danger me-3 fs-5"></i> 
+                                                            <strong class="fs-5">{{leave.employeeName}}</strong></td>
+                                                        <td><strong class="fs-5">{{leave.employeeNumber}}</strong></td>
+                                                        <td>
+                                                            <span class="label-primary me-1 fs-5"> <strong class="fs-5">{{leave.startDate}} - {{leave.startTime}}</strong></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label-primary me-1 fs-5"><strong class="fs-5">{{leave.endDate}} - {{leave.endTime}}</strong></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label-primary me-1 fs-5"><strong class="fs-5">{{leave.auditStatus}}</strong></span>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <div class="dropdown">
+
+                                                                <div class="">
+                                                                    <a class="dropdown-item" href="HR_ToDoItems_Leave.html" @click="checkbtn(leave)">
+                                                                    <i class="bx bx-edit-alt me-2"></i><strong class="fs-5"> 檢視項目</strong></a>
+
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                            </table>
+                                </div>
+                            </div>
+
+
+                            <!--請假代理-->
+                            <!--<div class="tab-pane fade " id="proxy" role="tabpanel">
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table table-striped table-hover">
+                                            <thead class="bg-black">
+                                                <tr>
+                                                    <th class="fs-4 text-white fw-bold">待修正項目</th>
+                                                    <th class="fs-4 text-white fw-bold">員工編號</th>
+                                                    <th class="fs-4 text-white fw-bold">請假起始時間</th>
+                                                    <th class="fs-4 text-white fw-bold">請假結束時間</th>
+                                                    <th class="fs-4 text-white fw-bold">狀態</th>
+                                                    <th class="fs-4 text-white fw-bold">修改</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-border-bottom-0" v-for="leave in leaveproxy">
+                                                <tr>
+                                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> 
+                                                        <strong class="fs-5">{{leave.employeeName}}</strong></td>
+                                                    <td>{{leave.employeeNumber}}</td>
+                                                    <td>
+                                                        <span class="label-primary me-1">{{leave.startDate}} - {{leave.startTime}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label-primary me-1">{{leave.endDate}} - {{leave.endTime}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label-primary me-1">{{leave.auditStatus}}</span>
+
+                                                    </td>
+                                                    <td>
+
+                                                        <div class="dropdown">
+
+                                                            <div class="">
+                                                                <a class="dropdown-item" type="button" @click="checkbtn(leave)" href="HR_ToDoItems_Leave.html"><i class="bx bx-edit-alt me-2"></i> 檢視項目</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                        </table>
+                            </div>
+                        </div>-->
+                            
+
+                            <!--加班審核-->
+
+
+
+
+                            <div class="tab-pane fade " id="over" role="tabpanel"style="display:none" >
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table table-striped table-hover">
+                                            <thead class="bg-black">
+                                                <tr>
+                                                    <th class="fs-4 text-white fw-bold">待辦項目</th>
+                                                    <th class="fs-4 text-white fw-bold">員工編號</th>
+                                                    <th class="fs-4 text-white fw-bold">加班起始時間</th>
+                                                    <th class="fs-4 text-white fw-bold">加班結束時間</th>
+                                                    <th class="fs-4 text-white fw-bold">狀態</th>
+                                                    <th class="fs-4 text-white fw-bold">修改</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-border-bottom-0" v-for="(work,key) in wkover">
+                                                <tr>
+                                                    <td><i class="fab fa-angular fa-lg text-danger me-3 fs-5"></i> 
+                                                        <strong class="fs-5">{{work.employeeName}}</strong></td>
+                                                    <td>{{work.employeeNumber}}</td>
+                                                    <td>
+                                                        <span class="label-primary me-1 fs-5"><strong class="fs-5">{{work.startDate}} - {{work.startTime}}</strong> </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label-primary me-1 fs-5"><strong class="fs-5">{{work.endDate}} -{{work.endTime}} </strong></span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label-primary me-1 fs-5" v-if="work.auditStatus==false"><strong class="fs-5">待審</strong></span>
+
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown">
+
+                                                            <div style="width: 120px;">
+                                                                <a class="dropdown-item btn-primary rounded" href="HR_ToDoItems_Work.html" type="button" @click="overbtn(work)"><i class="bx bx-edit-alt me-2"></i> <strong class="fs-5">檢閱</strong></a>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                        </table>
+
+                            </div>
+                        </div>
+            </div>
+            <!-- Content wrapper -->
+
+        </div>
+          <!-- / Layout page -->
+        </div>
+  
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+      </div>
+                     
+                </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+        <!--Vue-->
+        <script>
+          //var login = new Vue({
+          //  el: '#role',
+          //  data: {
+          //    normal: true,
+          //    premier: true,
+          //  },
+          //  methods: {
+
+          //  }
+          //})
+          const app = {
+            data() {
+              return {
+                employeelist: {},
+                employeedata: {},
+                dep: {},
+                leaveproxy: {},
+                buyapp: {},
+                wkover: {},
+                leavereturn: {},
+                NotyetOver: {},
+                cnt: {},
+                mnt: {},
+                wmt: {}
+              }
+            },
+            methods: {
+              checkbtn: function (e) {
+                sessionStorage.setItem("proxy", JSON.stringify(e))
+              },
+              overbtn: function (e) {
+                sessionStorage.setItem("work", JSON.stringify(e))
+
+              },
+              exitbtn: function (e) {
+                sessionStorage.setItem("leavereturn", JSON.stringify(e))
+              },
+              checkOver: function (e) {
+                sessionStorage.setItem("lookOver", JSON.stringify(e))
+              },
+              buycheckbtn: function (e) {
+                sessionStorage.setItem("see", JSON.stringify(e))
+              },
+              auditleave: function () {
+                $('#auditleave').show();
+                $('#over').hide();
+
+              },
+              over: function () {
+                $('#over').show();
+                $('#auditleave').hide();
+
+              }
+            },
+            computed() {
+
+
+            },
+
+            mounted() {
+              this.employeedata = JSON.parse(sessionStorage.getItem("LoginInf"));
+
+              axios.get('/api/PersonnelProfileDetails/' + this.employeedata.EmpID)
+                .then(response => {
+                  this.employeelist = response.data;
+
+                  console.log("this.employeelist", this.employeelist);
+                  //一般員工GET被指定為代理人
+                  if (this.employeelist.positionId < 7) {
+                    axios.get('/api/PersonnelLeaveForms/proxyAudit/'
+                      + this.employeelist.departmentId + '/' + this.employeelist.positionId
+                      + '/' + this.employeelist.employeeId)
+                      .then(response => {
+                        this.leaveproxy = response.data;
+                        this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                      })
+
+                  }
+
+                  //一般員工GET被退件之採購申請
+                  if (this.employeelist.positionId < 7) {
+                    axios.get('/api/PersonnelLeaveForms/pcappcication/' + this.employeelist.employeeId)
+                      .then(response => {
+                        this.buyapp = response.data;
+                        this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                      })
+                  }
+
+                  //主管GET代理人同意之請假 以及同部門員工申請加班資料
+                  if (this.employeelist.positionId == 7) {
+                    axios.get('/api/PersonnelLeaveForms/manager/'
+                      + this.employeelist.departmentId)
+                      .then(response => {
+                        this.leaveproxy = response.data;
+                        this.mnt = this.leaveproxy.length
+                        //console.log(this.mnt)
+                      })
+                    axios.get('/api/PersonnelOvertimeForms/manager/over/'
+                      + this.employeelist.departmentId)
+                      .then(response => {
+                        this.wkover = response.data;
+                        //this.wmt = this.wkover.length
+                        console.log(this.wmt)
+                      })
+
+                  }
+                  //一般員工GET不同意回復之請假
+                  if (this.employeelist.positionId < 7) {
+                    axios.get('/api/PersonnelLeaveForms/retrun/' + this.employeelist.departmentId + '/' + this.employeelist.employeeId)
+                      .then(response => {
+                        this.leavereturn = response.data;
+                        this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                        //console.log(this.cnt)
+                      })
+                  }
+                  //一般員工GET還未檢閱之加班
+                  if (this.employeelist.positionId < 7) {
+                    axios.get('/api/PersonnelOvertimeForms/NotyetAudit/' + this.employeelist.employeeId)
+                      .then(response => this.NotyetOver = response.data)
+                  }
+
+
+                  console.log(this.leaveproxy)
+                })
+              setTimeout(() => {
+                this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                this.mnt = this.leaveproxy.length;
+                this.wmt = this.wkover.length;
+              }, 400)
+            }
+          }
+
+          Vue.createApp(app).mount('#app')
+
+
+        </script>
+      <!-- session -->
+      <script src="../assets/js/LoginSession.js"></script>
+  </body>
+</html>

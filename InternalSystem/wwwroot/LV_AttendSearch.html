@@ -26,14 +26,17 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
     <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-
+    
     <meta name="description" content="" />
-
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     
+    <!-- axios -->
+    <script crossorigin="anonymous"
+      integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+      src="https://lib.baomitu.com/axios/1.2.2/axios.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -91,7 +94,7 @@
 
                   <ul class="menu-inner py-1">
                       <!-- 首頁 -->
-                      <li class="menu-item active">
+                      <li class="menu-item">
                           <a href="./" class="menu-link">
                               <i class="menu-icon tf-icons bx bx-home-circle"></i>
                               <div data-i18n="Analytics" class="fs-4 fw-bold">首頁</div>
@@ -127,7 +130,7 @@
                       </li>
 
                       <!-- 請假/加班申請 -->
-                      <li class="menu-item">
+                      <li class="menu-item active open">
                           <a href="javascript:void(0);" class="menu-link menu-toggle">
                               <i class="menu-icon tf-icons bx bx-dock-top fs-4"></i>
                               <div data-i18n="Account Settings" class="fs-4 fw-bold">請假/加班申請</div>
@@ -153,7 +156,7 @@
                                       <div data-i18n="Connections" class="fs-5">加班查詢</div>
                                   </a>
                               </li>
-                              <li class="menu-item">
+                              <li class="menu-item active">
                                   <a href="LV_AttendSearch.html" class="menu-link">
                                       <div data-i18n="Notifications" class="fs-5">出缺勤查詢</div>
                                   </a>
@@ -201,6 +204,8 @@
                                       <div data-i18n="Account" class="fs-5">員工出勤查詢</div>
                                   </a>
                               </li>
+                              
+
                           </ul>
                       </li>
 
@@ -226,14 +231,11 @@
                                       <div data-i18n="Account" class="fs-5">查詢/修改/刪除訂單</div>
                                   </a>
                               </li>
-
                               <li class="menu-item">
-                                  <a href="BS_OrderAll.html" class="menu-link">
-                                      <div data-i18n="Account" class="fs-5">訂單一覽</div>
-                                  </a>
-                              </li>
-
-
+                                <a href="BS_OrderAll.html" class="menu-link">
+                                  <div data-i18n="Account" class="fs-5">訂單一覽</div>
+                                </a>
+                            </li>
                           </ul>
                       </li>
 
@@ -283,6 +285,7 @@
                               <div data-i18n="Account Settings" class="fs-4 fw-bold">產線狀況監控</div>
                           </a>
                           <ul class="menu-sub">
+                               
                               <li class="menu-item">
                                   <a href="BS_BugSys.html" class="menu-link">
                                       <div data-i18n="Account" class="fs-5">報錯系統</div>
@@ -312,11 +315,6 @@
                                   </a>
                               </li>
                               <li class="menu-item">
-                                  <a href="PC_Acceptance.html" class="menu-link">
-                                      <div data-i18n="Account" class="fs-5">採購驗收區</div>
-                                  </a>
-                              </li>
-                              <li class="menu-item">
                                   <a href="PC_Application.html" class="menu-link">
                                       <div data-i18n="Account" class="fs-5">採購申請表</div>
                                   </a>
@@ -326,11 +324,11 @@
                                       <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                   </a>
                               </li>
-                              <!--<li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>-->
+                              <li class="menu-item">
+                                  <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                                      <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                                  </a>
+                              </li>
                               <li class="menu-item">
                                   <a href="PC_ItemSearch.html" class="menu-link">
                                       <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -400,7 +398,7 @@
                                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                         <div class="avatar ">
-                                            <img :src="navInf.Photo" class="h-auto rounded-circle" />
+                                            <img :src="navInf.Photo" class="w-px-40 h-auto rounded-circle" />
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
@@ -438,271 +436,133 @@
 
                   <!-- / Navbar -->
                   <!-- Content wrapper -->
-                  <div class="content-wrapper ">
+                  <div class="content-wrapper">
                       <!-- Content -->
-                        <div class="container-fluid">
-                        <!--這是影片 -->
-                        <!-- <div style="width: 1024px;" class="mx-auto">
-                            <video autoplay loop style="height: 100%; width: 100%; object-fit: cover;">
-                                <source src="../assets/ENDLESS COMPETITION. THE M3 AND THE M4  BMW Taiwan_1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div> -->
-                    
-                            <!-- Bootstrap carousel -->
-                            <div class="col-md my-4 shadow mx-auto" style="width: 1350px;">
-                                <!-- <h5 class="my-4">Bootstrap carousel</h5> -->
-                    
-                                <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
-                                        <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
-                                        <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
-                                    </ol>
-                                    <div class="carousel-inner rounded">
-                                        <div class="carousel-item active ">
-                                            <img class="d-block w-100" src="../assets/img/Index_Photo/trimmed/M4.jpg"
-                                                style="width: 100%; height: 100%; object-fit: contain;" />
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h1>M4</h1>
-                                                <p>Looking to the future. Paying homage to the past</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="../assets/img/Index_Photo/trimmed/X6.jpg"
-                                                style="width: 100%; height: 100%; object-fit: contain;" />
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h1>X6</h1>
-                                                <p>Challenging the conventions of the present</p>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="../assets/img/Index_Photo/trimmed/7.jpg"
-                                                style="width: 100%; height: 100%; object-fit: contain;" />
-                                            <div class="carousel-caption d-none d-md-block">
-                                                <h1>7 series</h1>
-                                                <p>The cutting edge of automotive design, performance, and technology becomes reality in
-                                                    every
-                                                    BMW</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
+                                          <div class="container-xxl flex-grow-1 container-p-y" id="app">
+                        <!-- 我是成功的吐司 -->
+                        <div class="bs-toast toast fade show bg-success mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
+                            aria-live="assertive" aria-atomic="true" id="toastSuc">
+                            <div class="toast-header">
+                                <i class="bx bx bxs-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-bold fs-3">通知</div>
+                                <small></small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body fs-4 fw-bold">
+                                ✔&nbsp;{{text}}
+                            </div>
+                        </div>
+                        <!-- 錯誤的吐司 -->
+                        <div class="bs-toast toast fade show bg-danger mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
+                            aria-live="assertive" aria-atomic="true" id="toastErr">
+                            <div class="toast-header">
+                                <i class="bx bx bxs-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-bold fs-3">通知</div>
+                                <small></small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body fs-4 fw-bold">
+                                ❌&nbsp;{{text}}
+                            </div>
+                        </div>
+                        <span class="fs-4">請假/加班申請 / </span><span class=" fw-bold fs-2">出缺勤查詢</span>
+
+                          <div class="card mb-4 m-4">
+                            <!-- 卡片標題 -->
+                            <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
+                                <div class="col-1 my-2 mb-3" style="width: 70px;">
+                                    <img src="../assets/img/myicon/eye.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                                </div>
+                                <div class="col-6 my-2 mb-3">
+                                    <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">個人出勤資料查詢</h2>
                                 </div>
                             </div>
-                            <!-- Bootstrap crossfade carousel -->
-                    
-                    </div>
-                      <div class="container-xxl flex-grow-1 container-p-y  ">
-                          <!--  -->
-                          <div class="row mb-5">
-                              <div id="app">
-                                  <div class="row">
 
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2023/20230116-bmw-2022-luxury-bev-champion.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2023/0116/0116-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1673853033861.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      稱霸台灣豪華電動車市場BMW榮獲2022年豪華電動車銷售冠軍
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      以領先群雄的前瞻思維與持續挑戰創新的不凡意志，BMW集團不僅於2022年拿下優異的全球銷售成績，穩坐全球豪華品牌銷售冠軍寶座，新世代電動車銷售更持續突破與成長。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
+                            <div class="card-body">
+                              <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                <!-- 從這裡複製 -->
+                                <br>
+                                <div class="my-4 d-flex mx-4 border border-5 rounded inputCard2" style="position: relative;">
+                                    <!-- 篩選樣板 -->
+                                    <p class="badge rounded-pill bg-secondary fs-3 mb-1 fw-bold col-2"
+                                        style="position: absolute;top: -25px;left: 20px;">
+                                        查詢條件</p>
 
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2023/20230113-bmw-2023-cny-business-hours.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/0127/0127-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1643272037908.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      BMW / MINI總代理汎德公司全台展示暨服務中心2023年春節營業時間
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      BMW / MINI總代理汎德公司全台展示暨服務中心將於春節期間調整服務時間，2023年1月27日（週五），即農曆初六，恢復正常營業時間。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
+                                    <div class="col d-flex mt-5 mb-5 mx-4">
+                                        <!-- 複製到這 -->
+                                        <label for="html5-month-input" class="me-2 badge rounded-pill bg-primary fs-4 mb-1 fw-bold mylLable">查詢月份</label>
+                                        <div class="col-3">
+                                            <input class="form-control fs-5 myinput" type="month" v-model="employeedata.date" id="html5-month-input" />
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" @click="searchbtn" class="btn btn-outline-primary me-3 fs-4 fw-bold border-3 ms-4">查詢</button> 
+                                        </div>
+                                    </div>
+                                </div>
+                          </form>
+                        </div>
+                          <!-- Basic Bootstrap Table -->
+                        <h5 class="alert alert-warning text-black fs-2 fw-bold mb-4 mt-4 mx-auto">出勤資料</h5>
+                              <div class="table-responsive text-nowrap">
+                                  <table class="table table-striped table-hover">
+                                      <thead class="bg-black">
+                                          <tr>
+                                              <th class="fs-4 text-white fw-bold">員工名稱</th>
+                                              <th class="fs-4 text-white fw-bold">員工編號</th>
+                                              <th class="fs-4 text-white fw-bold">打卡日期</th>
+                                              <th class="fs-4 text-white fw-bold">打卡時間</th>
+                                              <!--<th class="fs-4 text-white fw-bold">出勤狀態</th>-->
+                                          </tr>
+                                      </thead>
+                                      <tbody class="table-border-bottom-0">
+                                          <tr v-for="item in attendencelist">
+                                              <td><i class="fab fa-angular fa-lg text-danger"></i> <strong class="fs-5 fw-bold">{{item.employeeName}}</strong></td></td>
+                                              <td class="fs-5 fw-bold">{{item.employeeNumber}}</td>
+                                              <td>
+                                                  <span class="label-primary fs-5 fw-bold ">{{item.date}}</span>
+                                              </td>
+                                              <td>
+                                                  <span class="label-primary  fs-5 fw-bold ">{{item.attendTime}}</span>
+                                              </td>
+                                              <!-- <td>
 
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20221205-bmw-m2-pre-sale.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/1205/1205-1.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1670231927243.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      忠於最純粹的駕馭樂趣全新世代BMW M2 Coupé預售正式啟動
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      2015年首代BMW M2 Coupé上市後擄獲廣大喜愛競速、追求熱血操控車迷的心，充滿樂趣的動感駕馭以及外放不羈的迷人外表，讓BMW M2成為BMW M最暢銷的高性能車型。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
+                                                  <span class="label-primary" >出勤</span>
+                                              </td> -->
+                                          </tr>
 
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20221221-bmw-the-new-7-launch.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/1221/1221-1.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1671679362347.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      「This is Forwardism」顛覆 不凡新境全新世代BMW 7系列豪華長軸旗艦 璀璨尊榮登場
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      勇於不斷追求創新、持續顛覆眾人想像，BMW秉持著領導者思維擘畫未來，創造出對世界影響甚鉅且深具意義的里程碑，同時更以領拓當代之姿破除成規，開拓令眾人驚嘆的全新局面。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20221125-bmw-1-series-edition-colorvision-launch.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/1125/1125-1.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1669364257225.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      矚目型格 與眾不同的率性魅力全新BMW 1系列Edition ColorVision動感登場
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      靈活的操控性、時尚都會的率性姿態，都是BMW 1系列天生的迷人特色，也讓全新BMW 1系列自上市以來備受消費者推崇，成為豪華小型掀背房車級距的首選指標。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20221021-bmw-2022-golf-cup-taiwan-final.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/1021/1021-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1666334039662.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      2022 BMW世界盃業餘高爾夫錦標賽集結全台BMW高球好手 台灣決賽完美落幕
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      全球規模最大、最重要的業餘高爾夫球賽事 — 「BMW世界盃業餘高爾夫錦標賽」舉辦至今已有超過30年的歷史，每年均吸引眾多逾50個國家、超過10萬名高球好手一同共襄盛舉。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20220804-bmw-fast-charging-launch.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/0804/0804-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1659596367107.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      BMW智慧電能生活圈 輕鬆暢享純電旅程BMW i高速充電網 全台10站正式啟用
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      2022上半年，BMW集團於全球共售出75,891輛純電車款，相較於2021年大幅成長110.3%，顯示出消費者對於BMW電動車的喜愛及高度關注，BMW集團更著眼未來。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20220912-bmw-x7-pre-sale.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/0912/220912-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1662981950646.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      前衛無疆 霸氣再臨全新頂級旗艦休旅THE X7七人座旗艦休旅 預售開跑。
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      BMW以超越自我並奠定不凡的堅定意念，打造品牌前所未有的頂級旗艦休旅THE X7，詮釋了BMW對於頂級豪華的追求，獻上無微不至的駕乘體驗，擘劃頂級七人專屬旗艦座駕。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                      <div class=" col-3 col-lg-4 mb-3 ">
-                                          <div class="card h-80 lvrv  cardBg1">
-                                              <a href="https://www.bmw.com.tw/zh/news/info/2022/20221003-bmw-new-7-series-pre-sale.html">
-                                                  <img class="card-img-top"
-                                                       src="https://www.bmw.com.tw/content/dam/bmw/marketTW/bmw_com_tw/news/news-information/content/2022/1003/1003-0.jpg/jcr:content/renditions/cq5dam.resized.img.1185.large.time1664779479205.jpg" />
-                                              </a>
-                                              <div class="card-body cardBg2">
-                                                  <h5 class="card-title cardText fs-4 ">
-                                                      BMW智慧電能生活圈 輕鬆暢享純電旅程BMW i高速充電網 全台10站正式啟用
-                                                  </h5>
-                                                  <p class="card-text fs-6">
-                                                      顛覆眾人想像，BMW以開天闢地之力，醞釀前瞻思維與勇於創新之品牌核心價值，將歷代BMW 7系列刻劃為頂尖旗艦典範，更透過第七代BMW 7系列豪華旗艦。
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
+                                      </tbody>
+                                  </table>
                               </div>
-                          </div>
-                      </div>
+                              <nav aria-label="Page navigation example" class="justify-content-center d-flex">
+                                  <ul class="pagination">
+                                      <!--<li class="page-item">
+                                          <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                          </a>
+                                      </li>-->
+                                      <li class="page-item" v-for="(item,key) in page"><button class="page-link" @click="find(item)">{{key+1}}</button></li>
+
+                                      <!--<li class="page-item">
+                                          <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                          </a>
+                                      </li>-->
+                                  </ul>
+                              </nav>
+                                  <span v-if="page!=0" class="fs-5  fw-bold  justify-content-center d-flex">第{{nowpage}}頁/共{{page}}頁</span>
+
+                          <!--/ Basic Bootstrap Table -->
+                            </div>
+                        </div>
                       <!-- / Content -->
                       <!-- Footer -->
                       <!-- / Footer -->
-                      <!-- <div class="content-backdrop fade"></div> -->
+
+                      <div class="content-backdrop fade"></div>
                   </div>
-
-
-
-
-                  <!-- / Content wrapper -->
+                  <!-- Content wrapper -->
               </div>
               <!-- / Layout page -->
-          </div>
-
-          <!-- 吐司彈出窗 -->
-          <!-- 正確的 -->
-          <div class="bs-toast toast fade show bg-primary mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
-               aria-live="assertive" aria-atomic="true" id="toastSucess">
-              <div class="toast-header">
-                  <i class="bx bx bxs-bell bx-tada me-2"></i>
-                  <div class="me-auto fw-bold fs-3">通知</div>
-                  <small></small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-              </div>
-              <div class="toast-body fs-4 fw-bold">
-                  🌞&nbsp;已登入！
-              </div>
-          </div>
-
-          <!-- 錯誤的 -->
-          <div class="bs-toast toast fade show bg-danger mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
-               aria-live="assertive" aria-atomic="true" id="toastErr">
-              <div class="toast-header">
-                  <i class="bx bx bxs-bell bx-tada me-2"></i>
-                  <div class="me-auto fw-bold fs-3">通知</div>
-                  <small></small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-              </div>
-              <div class="toast-body fs-4 fw-bold">
-                  ⛔&nbsp;登入失敗！帳號密碼錯誤
-              </div>
           </div>
 
           <!-- Overlay -->
@@ -726,23 +586,89 @@
 
       <!-- Page JS -->
       <script src="../assets/js/dashboards-analytics.js"></script>
-      <!-- toasts  -->
-      <script src="../assets/js/ui-toasts.js"></script>
 
       <!-- Place this tag in your head or just before your close body tag. -->
       <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-      <!-- 吐司彈出窗Core -->
-      <script>
-        $(document).ready(function () {
-            $("#toastSucess").fadeIn("fast");
-            setTimeout(() => $("#toastSucess").fadeOut(), 2000);
-        })
-    </script>
-
       <!-- session -->
       <script src="../assets/js/LoginSession.js"></script>
-      <script src="https://unpkg.com/spacingjs" defer></script>
+      <!--Vue-->
+      <script>
+        const app = {
+            data() {
+                return {
+                    text: "",
+                    empdata: {},
+                    employeedata: {},
+                    attendencelist: {},
+                    page: 0,
+                    nowpage: {}
+                }
+            },
+            methods: {
+                searchbtn: function () {
+                    if (this.employeedata.date != null) {
+                        axios.get('/api/PersonnelAttendanceTimes/id/' + this.empdata.EmpID + '/' + this.employeedata.date + '/' + 1)
+                            .then(response => {
+                                this.attendencelist = response.data;
+                                this.nowpage = 1;
+                                console.log(this.attendencelist)
+                                if (this.attendencelist.length == 0) {
+                                    this.text = '查無此項';
+                                    $("#toastErr").fadeIn("fast");
+                                    setTimeout(() => $("#toastErr").fadeOut(), 2000);
+                                }
+                                else {
+                                    this.text = "查詢成功";
+                                    $("#toastSuc").fadeIn("fast");
+                                    setTimeout(() => $("#toastSuc").fadeOut(), 2000);
+                                }
+                            }).catch(err => {
+                                console.log(err);
+                                this.text = '查無此項';
+                                $("#toastErr").fadeIn("fast");
+                                setTimeout(() => $("#toastErr").fadeOut(), 2000);
+                            })
+                        axios.get('/api/PersonnelAttendanceTimes/Page/id/' + this.empdata.EmpID + '/' + this.employeedata.date)
+                            .then(response => {
+                                this.page = response.data;
+                                console.log(this.page)
+                            }).catch(err => {
+                                console.log(err); this.text = '查無此項';
+                                $("#toastErr").fadeIn("fast");
+                                setTimeout(() => $("#toastErr").fadeOut(), 2000);
+                            })
+                    }
+                    else {
+                        this.text = '查無結果';
+                        $("#toastErr").fadeIn("fast");
+                        setTimeout(() => $("#toastErr").fadeOut(), 2000);
 
+                    }
+                },
+                find: function (e) {
+
+                    axios.get('/api/PersonnelAttendanceTimes/id/' + this.empdata.EmpID + '/' + this.employeedata.date + '/' + e)
+                        .then(response => {
+                            this.attendencelist = response.data;
+                            this.nowpage = e;
+                            console.log(this.attendencelist)
+                        }).catch(err => {
+                            console.log(err);
+                            this.text = '查無此項';
+                            $("#toastErr").fadeIn("fast");
+                            setTimeout(() => $("#toastErr").fadeOut(), 2000);
+                        })
+                }
+            },
+            mounted() {
+                this.empdata = JSON.parse(sessionStorage.getItem("LoginInf"))
+
+
+            }
+
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
   </body>
 </html>

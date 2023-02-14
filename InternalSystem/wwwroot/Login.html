@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <!-- axios -->
+    <script crossorigin="anonymous"
+            integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+            src="https://lib.baomitu.com/axios/1.2.2/axios.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+</head>
+
+  <body>
+      <!-- Content -->
+      <!-- 背景圖片 -->
+        <div style="background-image:url(../assets/img/BMW背景2.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;">
+    <!-- 毛玻璃效果 -->
+    <div class="container-fluid border "style="position: absolute;backdrop-filter : blur(4px);width: 100%;height: 100%;">
+    </div>
+      <div class="container-xxl" id="login">
+          <div class="authentication-wrapper authentication-basic container-p-y">
+              <div class="authentication-inner">
+                  <!-- Register -->
+                  <div class="card">
+                      <div class="card-body">
+                          <!-- Logo -->
+                          <div class="app-brand justify-content-center">
+                              <span class="app-brand-logo demo me-3">
+                                  <img src="../assets/img/BMW_logo.png" alt="Logo圖片" style="width: 60px;">
+                              </span>
+                              <span class="fs-2 demo text-body fw-bolder">BMW內部系統</span>
+                          </div>
+                          <!-- /Logo -->
+                          <h4 class="mb-5 text-center">職員你好👋請先登入!</h4>
+
+                          <form id="loginform" class="mb-3" method="POST" onsubmit="return false">
+                              <div class="mb-3">
+                                  <label for="email" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">請輸入帳號</label>
+                                  <input v-model="form.UserID" type="text" class="form-control fs-5" id="email" name="email-username" placeholder="請輸入帳號" autofocus />
+                              </div>
+                              <div class="mb-3 form-password-toggle">
+                                  <div class="d-flex justify-content-between">
+                                      <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="password">密碼</label>
+                                      <a href="#">
+                                          <small>忘記密碼?</small>
+                                      </a>
+                                  </div>
+                                  <div class="input-group input-group-merge">
+                                      <input v-model="form.UserPwd" type="password" id="password" class="form-control fs-5" name="password"
+                                             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                             aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                  </div>
+                              </div>
+                              <div class="mb-3">
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" id="remember-me" />
+                                      <label class="form-check-label" for="remember-me"> 記住我 </label>
+                                  </div>
+                              </div>
+                              <div class="mb-3">
+                                  <button class="btn btn-primary d-grid w-100" @click="DoLogin()">登入</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <!-- /Register -->
+              </div>
+          </div>
+      </div>
+
+        </div>
+      <!-- / Content -->
+
+    <!-- 吐司彈出窗 -->  
+    <!-- 錯誤的 -->
+    <div class="bs-toast toast fade show bg-danger mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
+        aria-live="assertive" aria-atomic="true" id="toastErr">
+        <div class="toast-header">
+            <i class="bx bx bxs-bell bx-tada me-2"></i>
+            <div class="me-auto fw-bold fs-3">通知</div>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-4 fw-bold">
+            ⛔&nbsp;登入失敗！帳號密碼錯誤
+        </div>
+    </div>
+
+      <!-- Core JS -->
+      <!-- build:js assets/vendor/js/core.js -->
+      <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+      <script src="../assets/vendor/libs/popper/popper.js"></script>
+      <script src="../assets/vendor/js/bootstrap.js"></script>
+      <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+      <script src="../assets/vendor/js/menu.js"></script>
+      <!-- endbuild -->
+      <!-- Vendors JS -->
+      <!-- Main JS -->
+      <script src="../assets/js/main.js"></script>
+
+      <!-- Page JS -->
+      <!-- Place this tag in your head or just before your close body tag. -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+
+    <!--Vue-->
+    <script>
+      var login = new Vue({
+        el: '#login'
+        , data: function () {
+          var data = {
+            form: {}
+          };
+          return data;
+        },
+        methods: {
+          // 執行登入按鈕
+          DoLogin: function () {
+            var self = this;
+
+            // 組合表單資料
+            var postData = {};
+            postData['Account'] = self.form.UserID;
+            postData['Password'] = self.form.UserPwd;
+
+            axios.post("/api/LoginTest",
+              postData
+            )   //驗證
+              .then((response) => {
+                console.log(response.data);
+                var data = response.data[0]
+                var LoginInf = {
+                  State: data.state,
+                  EmpID: data.employeeId,
+                  Name: data.employeeName,
+                  EmpNumber: data.employeeNumber,
+                  DepID: data.departmentId,
+                  PositionId: data.positionId,
+                  Depment: data.depment,
+                  PositionName: data.positionName,
+                  Photo: data.photo
+                }
+                console.log(LoginInf);
+
+
+                if (LoginInf.State == "使用者已登入") {
+                  //取得使用者資訊
+                  sessionStorage.setItem("LoginInf", JSON.stringify(LoginInf));
+                    location.assign("./")
+                }
+
+              })
+              .catch((error) => {
+                $("#toastErr").fadeIn("fast");
+                setTimeout(() => $("#toastErr").fadeOut(), 2000);
+              })
+
+          }
+        }
+      })
+    </script>
+             
+
+             <!-- 
+                const app ={
+                    data(){
+                        return{
+                           logindata:{}
+                        }
+                    },
+                    methods:{
+                        btn:function(){}
+                    },
+                    mounted(){
+
+
+                    }
+                }
+
+                Vue.createApp(app).mount('#app')
+              -->
+  </body>
+</html>

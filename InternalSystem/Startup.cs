@@ -56,14 +56,14 @@ namespace InternalSystem
             //services.AddHttpContextAccessor();
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "InternalSystem", Version = "v1" });
-            });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "InternalSystem", Version = "v1" });
+            //});
             services.AddDbContext<MSIT44Context>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MSIT44DbContext")));
-            services.AddDbContext<MSIT44Context2>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MSIT44DbContext")));
+            //services.AddDbContext<MSIT44Context2>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("MSIT44DbContext")));
             //services.AddControllers().AddNewtonsoftJson(options =>
             //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
@@ -74,8 +74,8 @@ namespace InternalSystem
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "InternalSystem v1"));
+                //app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "InternalSystem v1"));
             }
 
             app.UseHttpsRedirection();
